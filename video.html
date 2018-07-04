@@ -1,0 +1,48 @@
+<html>
+<head>
+<style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: black;
+    }
+
+    #demo-player {
+      width: 100vw;
+      height: calc( 100vw * (9/16) );
+    }
+</style>
+<script type="text/javascript">
+    var cld = cloudinary.Cloudinary.new({
+      cloud_name: "de-demo",
+      secure: true
+    });
+
+    var options = {
+      publicId: "tropical360_qjbr2d",
+      plugins: {
+        panorama: {
+          clickAndDrag: true,
+          clickToToggle: true,
+          autoMobileOrientation: true
+        }
+      },
+      sourceTypes: ["mp4"]
+    };
+
+    var vplayer = cld.videoPlayer("demo-player", options);
+</script>
+</head>
+<body>
+<video
+  id="demo-player"
+  loop controls
+  class="cld-video-player"
+  crossorigin="anonymous">
+</video>
+</body>
+</html>
+
